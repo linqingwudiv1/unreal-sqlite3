@@ -1,4 +1,6 @@
-分叉更新到 UE4 4.21和SQLite V3.27.2 有时间加个Editor Fork：https://github.com/KhArtNJava/SQLite3UE4
+更新到 UE4 4.21和SQLite V3.27.2 
+有时间扩展个Editor Plugin
+Fork：https://github.com/cindustries/unreal-sqlite3
 
 
 
