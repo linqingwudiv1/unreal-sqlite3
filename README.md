@@ -1,5 +1,7 @@
 更新到 UE4 4.21和SQLite V3.27.2 
-有时间扩展个Editor Plugin
+
+有时间的话扩展个Editor Plugin
+
 Fork：https://github.com/cindustries/unreal-sqlite3
 
 
