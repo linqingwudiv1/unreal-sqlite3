@@ -27,7 +27,7 @@ struct CISQLITE3_API FSQLiteQueryTermExpectedNode
 	FString Query;
 
 	FSQLiteQueryTermExpectedNode(){}
-	FSQLiteQueryTermExpectedNode(FString LHSQuery, FString Append) : Query(LHSQuery) 
+	FSQLiteQueryTermExpectedNode(FString _LHSQuery, FString Append) : Query(_LHSQuery) 
 	{
 		Query += Append;
 	}
@@ -42,5 +42,5 @@ struct CISQLITE3_API FSQLiteQueryFinalizedQuery
 	FString Query;
 
 	FSQLiteQueryFinalizedQuery(){}
-	FSQLiteQueryFinalizedQuery(FString Query) : Query(Query){}
+	FSQLiteQueryFinalizedQuery(FString _Query) : Query(_Query){}
 };

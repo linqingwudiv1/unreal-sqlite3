@@ -10,15 +10,21 @@
   "DocsURL": "http://conflict.industries/sqlite3/",
   "MarketplaceURL": "",
   "SupportURL": "http://conflict.industries/support",
-  "EnabledByDefault": false,
-  "CanContainContent": false,
-  "IsBetaVersion": true,
-  "Installed": false,
+	"EnabledByDefault": true,
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": true,
   "Modules": [
     {
       "Name": "CISQLite3",
       "Type": "Runtime",
-      "LoadingPhase": "Default"
+      "LoadingPhase": "Default",			
+      "WhitelistPlatforms": [
+				"Win64",
+				"Win32",
+				"HTML5",
+				"Android"
+			]
     }
   ]
 }

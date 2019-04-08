@@ -26,6 +26,8 @@ bool USQLiteDatabase::RegisterDatabase(FString Name, FString Filename, bool Rela
 	if (!IsValidDatabase(actualFilename, true))
 	{
 		FString message = "Unable to add database '" + actualFilename + "', it is not valid (problems opening it)!";
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, message);
+
 		LOGSQLITE(Error, *message);
 		return false;
 	}
@@ -33,6 +35,7 @@ bool USQLiteDatabase::RegisterDatabase(FString Name, FString Filename, bool Rela
 	if (IsDatabaseRegistered(Name))
 	{
 		FString message = "Database '" + actualFilename + "' is already registered, skipping.";
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, message);
 		LOGSQLITE(Warning, *message);
 		return true;
 	}
@@ -40,6 +43,7 @@ bool USQLiteDatabase::RegisterDatabase(FString Name, FString Filename, bool Rela
 	Databases.Add(Name, actualFilename);
 
 	FString successMessage = "Registered SQLite database '" + actualFilename + "' successfully.";
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, successMessage);
 	LOGSQLITE(Verbose, *successMessage);
 	return true;
 
@@ -196,11 +200,13 @@ bool USQLiteDatabase::IsDatabaseRegistered(FString DatabaseName)
 bool USQLiteDatabase::CanOpenDatabase(FString DatabaseFilename)
 {
 	sqlite3* db;
-	if (sqlite3_open(TCHAR_TO_ANSI(*DatabaseFilename), &db) == SQLITE_OK)
+	if (sqlite3_open(TCHAR_TO_UTF8(*DatabaseFilename), &db) == SQLITE_OK)
 	{
 		sqlite3_close(db);
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("is can open sqlite3"));
 		return true;
 	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("is not open sqlite3"));
 	return false;
 }
 
@@ -237,6 +243,7 @@ FSQLiteQueryResult USQLiteDatabase::GetData(const FString& DatabaseName, const F
 		!IsValidDatabase(Databases[DatabaseName], true))
 	{
 		LOGSQLITE(Error, TEXT("Unable to get data to object, database validation failed!"));
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Unable to get data to object, database validation failed!"));
 		result.Success = false;
 		result.ErrorMessage = TEXT("Database validation failed");
 		return result;

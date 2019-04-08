@@ -1,11 +1,3 @@
-更新到 UE4 4.21和SQLite V3.27.2 
-有时间扩展个Editor Plugin
-Fork：https://github.com/cindustries/unreal-sqlite3
-
-
-
--------------------------------------------割割割----------------------------------------------
-
 # Simple SQLite3 Source integration for Unreal Engine 4
 
 Based on [SQLite3UE4 Plugin by Jussi Saarivirta & KhArtNJava](https://github.com/KhArtNJava/SQLite3UE4/) but with compiling SQLite3 as part of the module code, this opens up compiling it (hopefully) on all platforms without any extra process.

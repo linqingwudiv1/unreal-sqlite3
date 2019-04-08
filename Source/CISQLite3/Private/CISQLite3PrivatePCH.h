@@ -1,7 +1,7 @@
 // Copyright (c) 2016 conflict.industries MIT License (MIT)
 
 #pragma once
-
+#include "Engine.h"
 #include "CISQLite3.h"
 #include "CoreUObject.h"
 #include "SQLiteDatabase.h"
